@@ -1,35 +1,22 @@
-name: Fetch MPD Daily
-on:
-  schedule:
-    - cron: '0 */6 * * *'  # Every 6 hours
-  workflow_dispatch:  # Manual trigger
+name: Get MPD URL
+on: workflow_dispatch
 
 jobs:
-  fetch-mpd:
+  get-mpd:
     runs-on: ubuntu-latest
     steps:
-      - name: Fetch MPD URL
-        run: |
-          RESPONSE=$(curl -s \
-            -H "Referer: https://webiptv.site/" \
-            -H "User-Agent: Mozilla/5.0" \
+      - run: |
+          curl -s -H "Referer: https://webiptv.site/" \
+            -H "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36" \
+            -H "Accept: */*" \
+            -H "Accept-Language: en-US,en;q=0.9" \
             -H "Origin: https://webiptv.site" \
-            "https://mpdchecker.webiptv.site/output.php?url=https%3A%2F%2Fwebiptv.site%2Fskynz.php%3Fid%3D219026")
+            -H "Connection: keep-alive" \
+            -H "Sec-Fetch-Dest: empty" \
+            -H "Sec-Fetch-Mode: cors" \
+            -H "Sec-Fetch-Site: same-site" \
+            -H "Pragma: no-cache" \
+            -H "Cache-Control: no-cache" \
+            "https://mpdchecker.webiptv.site/output.php?url=https%3A%2F%2Fwebiptv.site%2Fskynz.php%3Fid%3D219026" > mpd.txt
           
-          # Save to file
-          echo "$RESPONSE" > mpd_url.txt
-          
-          # Also test if URL works
-          URL=$(echo "$RESPONSE" | tr -d '\n')
-          echo "Extracted URL: $URL"
-          
-          # Get MPD content
-          curl -s "$URL" > manifest.mpd
-          
-      - name: Upload MPD URL
-        uses: actions/upload-artifact@v4
-        with:
-          name: mpd-files
-          path: |
-            mpd_url.txt
-            manifest.mpd
+          cat mpd.txt
