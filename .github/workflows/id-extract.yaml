@@ -1,0 +1,16 @@
+name: Curl Test
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  run-curl:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Run curl request
+        run: |
+          curl -H "Referer: https://webiptv.site/" \
+               -H "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36" \
+               -v https://webiptv.site/skynz1.php
