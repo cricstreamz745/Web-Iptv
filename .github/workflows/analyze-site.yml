@@ -1,0 +1,81 @@
+name: Analyze WebIPTV Site
+
+on:
+  workflow_dispatch:  # Manual trigger only
+  push:
+    branches: [ main ]
+    paths:
+      - 'scripts/analyze_site.py'
+      - 'requirements.txt'
+
+jobs:
+  analyze:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+      
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+        
+    - name: Install system dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y wget unzip
+        wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+        echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" | sudo tee /etc/apt/sources.list.d/google-chrome.list
+        sudo apt-get update
+        sudo apt-get install -y google-chrome-stable
+        
+    - name: Install Python dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+        
+    - name: Run site analysis
+      id: analyze
+      run: |
+        python scripts/analyze_site.py
+        
+    - name: Upload analysis results
+      uses: actions/upload-artifact@v3
+      with:
+        name: site-analysis-results
+        path: |
+          site_analysis.html
+          site_homepage.png
+          site_findings.json
+        retention-days: 30
+        
+    - name: Create summary report
+      run: |
+        echo "## WebIPTV Site Analysis Results" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        if [ -f "site_findings.json" ]; then
+          echo "### Elements Found:" >> $GITHUB_STEP_SUMMARY
+          echo '```json' >> $GITHUB_STEP_SUMMARY
+          cat site_findings.json >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+        else
+          echo "❌ No findings file created" >> $GITHUB_STEP_SUMMARY
+        fi
+        
+    - name: Commit results to repository
+      if: always()
+      run: |
+        git config --global user.name 'GitHub Actions'
+        git config --global user.email 'actions@github.com'
+        
+        # Add analysis files
+        git add site_analysis.html site_findings.json site_homepage.png || true
+        
+        # Check if there are changes
+        if git diff --staged --quiet; then
+          echo "No changes to commit"
+        else
+          git commit -m "📊 Site analysis results - $(date)"
+          git push
+        fi
