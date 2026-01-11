@@ -2,91 +2,91 @@
   {
     "name": "Sky Sports NZ 1 UHD",
     "thumb": "https://webiptv.site/sky4k.png",
-    "mpd": "https://dice-live-oc.akamaized.net/hdntl=exp=1768261143~acl=%2f*~id=786bf433-a218-4050-8e33-b6477b2bcfa3~data=hdntl,dWlkPTQwMTY0NnxkY2Uuc2t5bnomaXA9NzguMTQzLjIzNS4yMTgmZXhwPTE3NjgyNjExNzMmZWlkPTIxOTAyNiZjaWQ9ZGNlLnNreW56Jm9pZD0zMTgmdHlwZT1MSVZF~hmac=95d43ca7a5d95f4649d5364e6514933a43cde87578ae7b64a1a53405ec47a44b/dash/live/2093722/294921-313667/manifest-d.mpd",
+    "mpd": "https://dice-live-oc.akamaized.net/hdntl=exp=1768261810~acl=%2f*~id=d10db213-a84a-49bd-a137-e8e76202d992~data=hdntl,dWlkPTQwMTY0NnxkY2Uuc2t5bnomaXA9NzguMTQzLjIzNS4yMTgmZXhwPTE3NjgyNjE4NDAmZWlkPTIxOTAyNiZjaWQ9ZGNlLnNreW56Jm9pZD0zMTgmdHlwZT1MSVZF~hmac=7dd448e3023d47d37ddbc3cda9093a5d678361e396976d75a0d00fb5016d56ea/dash/live/2093722/294921-313667/manifest-d.mpd",
     "kid": "4d346b1d1ae64d4a800409cffa14983e",
     "key": "208c972bd2da4359ac94e6944fe378b6"
   },
   {
     "name": "Sky Sports NZ 1",
     "thumb": "https://iili.io/KbJy77S.png",
-    "mpd": "https://dice-live-oc.akamaized.net/hdntl=exp=1768261151~acl=%2f*~id=82e5f0d5-da32-414d-ab8b-c5ed580793f6~data=hdntl,dWlkPTQwMTY0NnxkY2Uuc2t5bnomaXA9NzguMTQzLjIzNS4yMTgmZXhwPTE3NjgyNjExODAmZWlkPTIxOTAyNiZjaWQ9ZGNlLnNreW56Jm9pZD0zMTgmdHlwZT1MSVZF~hmac=5f1dff88ddbe296f937b72b91988045f988e7e4ba0bbf7c281a4322a696751e9/dash/live/2093749/219026-314033/manifest-d.mpd",
+    "mpd": "https://dice-live-oc.akamaized.net/hdntl=exp=1768261817~acl=%2f*~id=82d692e4-985a-4238-b1ca-da0e9bd543e9~data=hdntl,dWlkPTQwMTY0NnxkY2Uuc2t5bnomaXA9NzguMTQzLjIzNS4yMTgmZXhwPTE3NjgyNjE4NDcmZWlkPTIxOTAyNiZjaWQ9ZGNlLnNreW56Jm9pZD0zMTgmdHlwZT1MSVZF~hmac=ccf309197e01225ad88035ae07d9890c1e7506d6ebabb05b37e3675446dd4b4e/dash/live/2093749/219026-314033/manifest-d.mpd",
     "kid": "aefc2c8d1c8840f1b6981f856c9269ba",
     "key": "cf8ea114c45b4d6596b2748258ab74d6"
   },
   {
     "name": "Sky Sports NZ 2",
     "thumb": "https://iili.io/Kbd3hYv.png",
-    "mpd": "https://dice-live-oc.akamaized.net/hdntl=exp=1768261158~acl=%2f*~id=1c442732-a733-43ef-a837-56b46520a879~data=hdntl,dWlkPTQwMTY0NnxkY2Uuc2t5bnomaXA9NzguMTQzLjIzNS4yMTgmZXhwPTE3NjgyNjExODgmZWlkPTIxOTAyNyZjaWQ9ZGNlLnNreW56Jm9pZD0zMTgmdHlwZT1MSVZF~hmac=c5560fd3ae6bff48d03d63cda186074902c1331aeead7583802f5fb3ea338531/dash/live/2093733/219027-313800/manifest-d.mpd",
+    "mpd": "https://dice-live-oc.akamaized.net/hdntl=exp=1768261825~acl=%2f*~id=86d86333-3de6-4832-bc7b-03c2f55f354f~data=hdntl,dWlkPTQwMTY0NnxkY2Uuc2t5bnomaXA9NzguMTQzLjIzNS4yMTgmZXhwPTE3NjgyNjE4NTQmZWlkPTIxOTAyNyZjaWQ9ZGNlLnNreW56Jm9pZD0zMTgmdHlwZT1MSVZF~hmac=dda7441f1b7649ee1e2f0886472e93457d092b0c4b9bb468ed39e7499254a41c/dash/live/2093733/219027-313800/manifest-d.mpd",
     "kid": "708a98b352bd4418a73a028edd84da8f",
     "key": "b1fa5c2bca4c4b57b924b748564532cb"
   },
   {
     "name": "Sky Sports NZ 3",
     "thumb": "https://iili.io/KbJoon2.png",
-    "mpd": "https://dice-live-oc.akamaized.net/hdntl=exp=1768261165~acl=%2f*~id=08d8bc98-6392-46f8-a894-919d6e3b2f97~data=hdntl,dWlkPTQwMTY0NnxkY2Uuc2t5bnomaXA9NzguMTQzLjIzNS4yMTgmZXhwPTE3NjgyNjExOTUmZWlkPTIxOTAyOCZjaWQ9ZGNlLnNreW56Jm9pZD0zMTgmdHlwZT1MSVZF~hmac=99db4f06b96174fe5ddee260c626962aaaaab057b6c8ff993c1ca7a6c6dec36d/dash/live/2093734/219028-313801/manifest-d.mpd",
+    "mpd": "https://dice-live-oc.akamaized.net/hdntl=exp=1768261832~acl=%2f*~id=023f42e1-c07e-4349-b768-29611f0196a6~data=hdntl,dWlkPTQwMTY0NnxkY2Uuc2t5bnomaXA9NzguMTQzLjIzNS4yMTgmZXhwPTE3NjgyNjE4NjImZWlkPTIxOTAyOCZjaWQ9ZGNlLnNreW56Jm9pZD0zMTgmdHlwZT1MSVZF~hmac=86e4e4b0a88f7d69796aacec65cba94898035326a965ee8caa810385bf584a05/dash/live/2093734/219028-313801/manifest-d.mpd",
     "kid": "2e2636daa74141b68cc14882ea3ff82b",
     "key": "0961f48287324adbb4b7ff3c9d82b3c9"
   },
   {
     "name": "Sky Sports NZ 4",
     "thumb": "https://iili.io/KbdFtNp.png",
-    "mpd": "",
+    "mpd": "https://dice-live-oc.akamaized.net/hdntl=exp=1768261840~acl=%2f*~id=6863b049-2b08-49b1-8490-89fd40eb9ef9~data=hdntl,dWlkPTQwMTY0NnxkY2Uuc2t5bnomaXA9NzguMTQzLjIzNS4yMTgmZXhwPTE3NjgyNjE4NjkmZWlkPTIxOTAyOSZjaWQ9ZGNlLnNreW56Jm9pZD0zMTgmdHlwZT1MSVZF~hmac=24704f1b022f3b8b3d131fd2ed1b51beb83a4d9dbab4a8fed0d82256e0cf725a/dash/live/2093735/219029-313802/manifest-d.mpd",
     "kid": "278b8746b7c7410e901af0aa3774f037",
     "key": "15e1142d647b474ebbd49e41efa2a9d7"
   },
   {
     "name": "Sky Sports NZ 5",
     "thumb": "https://iili.io/KbdfMG9.png",
-    "mpd": "https://dice-live-oc.akamaized.net/hdntl=exp=1768261190~acl=%2f*~id=2ec319f1-29ad-406b-8ddb-38449fa20c1b~data=hdntl,dWlkPTQwMTY0NnxkY2Uuc2t5bnomaXA9NzguMTQzLjIzNS4yMTgmZXhwPTE3NjgyNjEyMTkmZWlkPTIxOTAzMiZjaWQ9ZGNlLnNreW56Jm9pZD0zMTgmdHlwZT1MSVZF~hmac=9fe39ea15d839915fc738cce8932528b4a897efaefce88442d2ecdc7897dab81/dash/live/2093736/219032-313803/manifest-d.mpd",
+    "mpd": "https://dice-live-oc.akamaized.net/hdntl=exp=1768261847~acl=%2f*~id=e34f7e76-1da5-4a0c-8d3d-e7148ff722e0~data=hdntl,dWlkPTQwMTY0NnxkY2Uuc2t5bnomaXA9NzguMTQzLjIzNS4yMTgmZXhwPTE3NjgyNjE4NzcmZWlkPTIxOTAzMiZjaWQ9ZGNlLnNreW56Jm9pZD0zMTgmdHlwZT1MSVZF~hmac=368116ae55406517a2a12fa935c260436e8192c52311628b259b952ed53b5eb8/dash/live/2093736/219032-313803/manifest-d.mpd",
     "kid": "fdd24dd2c6c14126ad7c1ad1066b03dd",
     "key": "08289c6d57d54e8d8dca55e1862afb82"
   },
   {
     "name": "Sky Sports NZ 6",
     "thumb": "https://iili.io/KmU23ut.png",
-    "mpd": "https://dice-live-oc.akamaized.net/hdntl=exp=1768261197~acl=%2f*~id=92d66f6c-72f9-41e5-bad4-ba2646c7333a~data=hdntl,dWlkPTQwMTY0NnxkY2Uuc2t5bnomaXA9NzguMTQzLjIzNS4yMTgmZXhwPTE3NjgyNjEyMjYmZWlkPTIxOTAzMyZjaWQ9ZGNlLnNreW56Jm9pZD0zMTgmdHlwZT1MSVZF~hmac=f4ab37dd560ba96ae383f8efd595964f40ce43e61068a6bef8625794ae8dabc7/dash/live/2093737/219033-313804/manifest-d.mpd",
+    "mpd": "https://dice-live-oc.akamaized.net/hdntl=exp=1768261854~acl=%2f*~id=d6ff37b6-e950-4cc4-8656-539c7ee900fc~data=hdntl,dWlkPTQwMTY0NnxkY2Uuc2t5bnomaXA9NzguMTQzLjIzNS4yMTgmZXhwPTE3NjgyNjE4ODQmZWlkPTIxOTAzMyZjaWQ9ZGNlLnNreW56Jm9pZD0zMTgmdHlwZT1MSVZF~hmac=960b944f921515e39e4b148de7f58e27ec91ebe22ab96e758700de7a3bd03b75/dash/live/2093737/219033-313804/manifest-d.mpd",
     "kid": "e87521b3dfa44ed9ba004012dcb89172",
     "key": "bba9734a9d724531bbab7ef5d64ca1f8"
   },
   {
     "name": "Sky Sports NZ 7",
     "thumb": "https://iili.io/KmU3shF.png",
-    "mpd": "https://dice-live-oc.akamaized.net/hdntl=exp=1768261204~acl=%2f*~id=f5b01ff8-a33b-4607-ace8-aaac0c6b6230~data=hdntl,dWlkPTQwMTY0NnxkY2Uuc2t5bnomaXA9NzguMTQzLjIzNS4yMTgmZXhwPTE3NjgyNjEyMzQmZWlkPTIxOTAzNCZjaWQ9ZGNlLnNreW56Jm9pZD0zMTgmdHlwZT1MSVZF~hmac=be2adba1047ca893ac9a1eb83da8bf6ef432f2a39f27ee9a76cb79c0822862bf/dash/live/2093738/219034-313805/manifest-d.mpd",
+    "mpd": "https://dice-live-oc.akamaized.net/hdntl=exp=1768261862~acl=%2f*~id=d4d9739a-b77c-4db0-bd5d-6e505749e8b5~data=hdntl,dWlkPTQwMTY0NnxkY2Uuc2t5bnomaXA9NzguMTQzLjIzNS4yMTgmZXhwPTE3NjgyNjE4OTImZWlkPTIxOTAzNCZjaWQ9ZGNlLnNreW56Jm9pZD0zMTgmdHlwZT1MSVZF~hmac=0d3385d816e104da0f640f8de6d1131e60b1b1216eb49725377d19fe10d80227/dash/live/2093738/219034-313805/manifest-d.mpd",
     "kid": "af95024eda94455e922b90a39a3af93e",
     "key": "852e715ef4064b05b8e1cdee285648b5"
   },
   {
     "name": "Sky Sports NZ EPL",
     "thumb": "https://iili.io/KmUzIj4.webp",
-    "mpd": "https://dice-live-oc.akamaized.net/hdntl=exp=1768261212~acl=%2f*~id=b2945e04-a146-4bcc-9e63-4cd46b6088fb~data=hdntl,dWlkPTQwMTY0NnxkY2Uuc2t5bnomaXA9NzguMTQzLjIzNS4yMTgmZXhwPTE3NjgyNjEyNDEmZWlkPTIxOTAzNSZjaWQ9ZGNlLnNreW56Jm9pZD0zMTgmdHlwZT1MSVZF~hmac=4afc5541e2769c1b73517b11bf354ad0adddb271e5821f03928640f9ba20e44c/dash/live/2093753/219035-314047/manifest-d.mpd",
+    "mpd": "https://dice-live-oc.akamaized.net/hdntl=exp=1768261870~acl=%2f*~id=d1627f15-fdf7-4c44-9f64-e88cae89e104~data=hdntl,dWlkPTQwMTY0NnxkY2Uuc2t5bnomaXA9NzguMTQzLjIzNS4yMTgmZXhwPTE3NjgyNjE4OTkmZWlkPTIxOTAzNSZjaWQ9ZGNlLnNreW56Jm9pZD0zMTgmdHlwZT1MSVZF~hmac=22f32d80991baa85f83d45d2e3281205682fab8f17a48d840d0e05ce48ed7f4f/dash/live/2093753/219035-314047/manifest-d.mpd",
     "kid": "7a2758575dc04d63acc3573ab594d441",
     "key": "47071dd80de746a38cdc6a4dcde21abc"
   },
   {
     "name": "Sky Sports NZ 9",
     "thumb": "https://iili.io/KmU5Pl2.png",
-    "mpd": "https://dice-live-oc.akamaized.net/hdntl=exp=1768261219~acl=%2f*~id=548cc20e-6f06-4299-b505-9b8a09796c4f~data=hdntl,dWlkPTQwMTY0NnxkY2Uuc2t5bnomaXA9NzguMTQzLjIzNS4yMTgmZXhwPTE3NjgyNjEyNDkmZWlkPTIxOTAzNiZjaWQ9ZGNlLnNreW56Jm9pZD0zMTgmdHlwZT1MSVZF~hmac=c564d12eee5fcb2d03c64cb7473833b661fe426747ecca665322c8703bf9ee54/dash/live/2093740/219036-313807/manifest-d.mpd",
+    "mpd": "https://dice-live-oc.akamaized.net/hdntl=exp=1768261877~acl=%2f*~id=db2c9415-4215-4a1d-a6cf-6e2b21321dce~data=hdntl,dWlkPTQwMTY0NnxkY2Uuc2t5bnomaXA9NzguMTQzLjIzNS4yMTgmZXhwPTE3NjgyNjE5MDcmZWlkPTIxOTAzNiZjaWQ9ZGNlLnNreW56Jm9pZD0zMTgmdHlwZT1MSVZF~hmac=8acf16e69489fa30451ef31315bfb72c1397846c876ddaa70a0b5801b90a6d0b/dash/live/2093740/219036-313807/manifest-d.mpd",
     "kid": "72002c630e2343849984b5d3ec418162",
     "key": "ae6f8e3ff42a4963ae25686cca56c8e8"
   },
   {
     "name": "Sky Sports Select",
     "thumb": "https://iili.io/KmUMKbV.webp",
-    "mpd": "https://dice-live-oc.akamaized.net/hdntl=exp=1768261227~acl=%2f*~id=2552a1f8-2aaf-442e-8420-b804d6380ca9~data=hdntl,dWlkPTQwMTY0NnxkY2Uuc2t5bnomaXA9NzguMTQzLjIzNS4yMTgmZXhwPTE3NjgyNjEyNTcmZWlkPTIxOTAzNyZjaWQ9ZGNlLnNreW56Jm9pZD0zMTgmdHlwZT1MSVZF~hmac=18a6d83dfd270f5b03bea8de74f37c5d648b1b1061c36dba657c46dae19c6744/dash/live/2093741/219037-313808/manifest-d.mpd",
+    "mpd": "https://dice-live-oc.akamaized.net/hdntl=exp=1768261885~acl=%2f*~id=6f6155cc-e930-46b4-84fe-b5328109cf08~data=hdntl,dWlkPTQwMTY0NnxkY2Uuc2t5bnomaXA9NzguMTQzLjIzNS4yMTgmZXhwPTE3NjgyNjE5MTQmZWlkPTIxOTAzNyZjaWQ9ZGNlLnNreW56Jm9pZD0zMTgmdHlwZT1MSVZF~hmac=188d8b81fb71a6cb30db644009c4f2bad13cd13ec4a9788d423f5ac551260a56/dash/live/2093741/219037-313808/manifest-d.mpd",
     "kid": "01d02c97d1c949f9877acd230dcaa56d",
     "key": "708410b8bf1f4e998931183e8fab5d1e"
   },
   {
     "name": "Sky Sports ESPN",
     "thumb": "https://iili.io/KmUjH9s.png",
-    "mpd": "https://dice-live-oc.akamaized.net/hdntl=exp=1768261234~acl=%2f*~id=4e0ed9b7-d08a-436f-90dc-a4a0b38a32ca~data=hdntl,dWlkPTQwMTY0NnxkY2Uuc2t5bnomaXA9NzguMTQzLjIzNS4yMTgmZXhwPTE3NjgyNjEyNjQmZWlkPTIxOTAzOCZjaWQ9ZGNlLnNreW56Jm9pZD0zMTgmdHlwZT1MSVZF~hmac=399b222a9ce2a335107b6d3915d0c1808b1a94da77a1d9545d1d11c0a0bd21a2/dash/live/2093727/219038-313732/manifest-d.mpd",
+    "mpd": "https://dice-live-oc.akamaized.net/hdntl=exp=1768261892~acl=%2f*~id=4898b911-f924-4e06-95cf-f70b87f7fa15~data=hdntl,dWlkPTQwMTY0NnxkY2Uuc2t5bnomaXA9NzguMTQzLjIzNS4yMTgmZXhwPTE3NjgyNjE5MjEmZWlkPTIxOTAzOCZjaWQ9ZGNlLnNreW56Jm9pZD0zMTgmdHlwZT1MSVZF~hmac=753388b142e5cae728efb18b234275103935e7a71b2a844ec9cf1b5d10f9b1c1/dash/live/2093727/219038-313732/manifest-d.mpd",
     "kid": "326058ffe1cd4d3383781b36ca9145d1",
     "key": "99d405d46f114eff96789673e57d0121"
   },
   {
     "name": "Sky Sports ESPN 2",
     "thumb": "https://iili.io/KmUO5il.png",
-    "mpd": "https://dice-live-oc.akamaized.net/hdntl=exp=1768261241~acl=%2f*~id=a71ad8d4-b457-42cf-98e6-9b8324bac639~data=hdntl,dWlkPTQwMTY0NnxkY2Uuc2t5bnomaXA9NzguMTQzLjIzNS4yMTgmZXhwPTE3NjgyNjEyNzEmZWlkPTIxOTAzOSZjaWQ9ZGNlLnNreW56Jm9pZD0zMTgmdHlwZT1MSVZF~hmac=330fef215d2738dd2207117b109179b8d629ff765d1d36c527b6d8db3d3f530e/dash/live/2093729/219039-313735/manifest-d.mpd",
+    "mpd": "https://dice-live-oc.akamaized.net/hdntl=exp=1768261899~acl=%2f*~id=7a8aaa5c-5486-4f73-8967-886f1c14cfb9~data=hdntl,dWlkPTQwMTY0NnxkY2Uuc2t5bnomaXA9NzguMTQzLjIzNS4yMTgmZXhwPTE3NjgyNjE5MjkmZWlkPTIxOTAzOSZjaWQ9ZGNlLnNreW56Jm9pZD0zMTgmdHlwZT1MSVZF~hmac=63da70db440ef01393ef7116a552e7a652c6b29ea7d6266b29e8f63c4f6917b9/dash/live/2093729/219039-313735/manifest-d.mpd",
     "kid": "a01e1e0d5fb145b8b33190588490a27a",
     "key": "bfd9e3b0866e49cbae1bb7f7116451c9"
   }
