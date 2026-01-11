@@ -1,4 +1,4 @@
-name: Extract HTML Data
+name: NZ Auto Extract
 
 on:
   workflow_dispatch:
@@ -11,27 +11,54 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Fetch HTML
+      - name: Build JSON
         run: |
-          curl -s -H "Referer: https://webiptv.site/" \
-               -H "User-Agent: Mozilla/5.0" \
-               https://webiptv.site/skynz1.php > page.html
+          channels='[
+            {"name":"Sky Sports NZ 1 UHD","thumb":"https://webiptv.site/sky4k.png","url":"https://webiptv.site/skynz1uhd.php"},
+            {"name":"Sky Sports NZ 1","thumb":"https://iili.io/KbJy77S.png","url":"https://webiptv.site/skynz1.php"},
+            {"name":"Sky Sports NZ 2","thumb":"https://iili.io/Kbd3hYv.png","url":"https://webiptv.site/skynz2.php"},
+            {"name":"Sky Sports NZ 3","thumb":"https://iili.io/KbJoon2.png","url":"https://webiptv.site/skynz3.php"},
+            {"name":"Sky Sports NZ 4","thumb":"https://iili.io/KbdFtNp.png","url":"https://webiptv.site/skynz4.php"},
+            {"name":"Sky Sports NZ 5","thumb":"https://iili.io/KbdfMG9.png","url":"https://webiptv.site/skynz5.php"},
+            {"name":"Sky Sports NZ 6","thumb":"https://iili.io/KmU23ut.png","url":"https://webiptv.site/skynz6.php"},
+            {"name":"Sky Sports NZ 7","thumb":"https://iili.io/KmU3shF.png","url":"https://webiptv.site/skynz7.php"},
+            {"name":"Sky Sports NZ EPL","thumb":"https://iili.io/KmUzIj4.webp","url":"https://webiptv.site/skynz8.php"},
+            {"name":"Sky Sports NZ 9","thumb":"https://iili.io/KmU5Pl2.png","url":"https://webiptv.site/skynz9.php"},
+            {"name":"Sky Sports Select","thumb":"https://iili.io/KmUMKbV.webp","url":"https://webiptv.site/skynzsl.php"},
+            {"name":"Sky Sports ESPN","thumb":"https://iili.io/KmUjH9s.png","url":"https://webiptv.site/skynzespn.php"},
+            {"name":"Sky Sports ESPN 2","thumb":"https://iili.io/KmUO5il.png","url":"https://webiptv.site/skynzespn2.php"}
+          ]'
 
-      - name: Extract JSON
-        run: |
-          title=$(grep -oP '(?<=<title>).*?(?=</title>)' page.html)
+          echo '{ "country":"NZ", "channels": [' > nz.json
 
-          fetchurl=$(grep -oP 'fetch\(".*?"\)' page.html | head -n 1 | sed 's/fetch("//' | sed 's/")//')
+          echo "$channels" | jq -c '.[]' | while read ch; do
+            name=$(echo $ch | jq -r '.name')
+            thumb=$(echo $ch | jq -r '.thumb')
+            url=$(echo $ch | jq -r '.url')
 
-          clearkey=$(grep -oP 'clearKeys:\s*\{\s*"\K[^"]+' page.html)
-          keyvalue=$(grep -oP 'clearKeys:\s*\{\s*"[^"]+"\s*:\s*"\K[^"]+' page.html)
+            html=$(curl -s -H "Referer: https://webiptv.site/" -H "User-Agent: Mozilla/5.0" "$url")
 
-          echo "{ \"name\": \"$title\", \"fetch_url\": \"$fetchurl\", \"kid\": \"$clearkey\", \"key\": \"$keyvalue\" }" > data.json
+            fetchurl=$(echo "$html" | grep -oP 'fetch\(".*?"\)' | head -n1 | sed 's/fetch("//' | sed 's/")//')
+            kid=$(echo "$html" | grep -oP 'clearKeys:\s*\{\s*"\K[^"]+')
+            key=$(echo "$html" | grep -oP 'clearKeys:\s*\{\s*"[^"]+"\s*:\s*"\K[^"]+')
 
-      - name: Commit JSON
+            echo "{
+              \"name\": \"$name\",
+              \"thumb\": \"$thumb\",
+              \"page_url\": \"$url\",
+              \"fetch_url\": \"$fetchurl\",
+              \"kid\": \"$kid\",
+              \"key\": \"$key\"
+            }," >> nz.json
+          done
+
+          sed -i '$ s/,$//' nz.json
+          echo ']}' >> nz.json
+
+      - name: Commit
         run: |
           git config user.name "github-actions"
           git config user.email "actions@github.com"
-          git add data.json
-          git commit -m "Auto update JSON"
+          git add nz.json
+          git commit -m "Auto update NZ JSON"
           git push
