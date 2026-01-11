@@ -1,0 +1,35 @@
+name: Fetch MPD Daily
+on:
+  schedule:
+    - cron: '0 */6 * * *'  # Every 6 hours
+  workflow_dispatch:  # Manual trigger
+
+jobs:
+  fetch-mpd:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Fetch MPD URL
+        run: |
+          RESPONSE=$(curl -s \
+            -H "Referer: https://webiptv.site/" \
+            -H "User-Agent: Mozilla/5.0" \
+            -H "Origin: https://webiptv.site" \
+            "https://mpdchecker.webiptv.site/output.php?url=https%3A%2F%2Fwebiptv.site%2Fskynz.php%3Fid%3D219026")
+          
+          # Save to file
+          echo "$RESPONSE" > mpd_url.txt
+          
+          # Also test if URL works
+          URL=$(echo "$RESPONSE" | tr -d '\n')
+          echo "Extracted URL: $URL"
+          
+          # Get MPD content
+          curl -s "$URL" > manifest.mpd
+          
+      - name: Upload MPD URL
+        uses: actions/upload-artifact@v4
+        with:
+          name: mpd-files
+          path: |
+            mpd_url.txt
+            manifest.mpd
