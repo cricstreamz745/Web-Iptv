@@ -1,38 +1,35 @@
-name: Extract Sky NZ MPDs
+name: Get MPD JSON
 on:
   schedule:
     - cron: '*/10 * * * *'
   workflow_dispatch:
 
 jobs:
-  extract-mpds:
+  get-mpd:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       
-      - name: Get MPD for skynz1.php
+      - name: Fetch MPD and create JSON
         run: |
-          # Get page to find ID
-          html=$(curl -s -H "Referer: https://webiptv.site/" -H "User-Agent: Mozilla/5.0" "https://webiptv.site/skynz1.php")
-          
-          # Extract ID
-          id=$(echo "$html" | grep -o "skynz.php?id=[0-9]*" | head -1 | cut -d= -f2)
-          echo "Found ID: $id"
-          
-          # Get MPD URL
-          mpd=$(curl -s \
+          URL=$(curl -s \
             -H "Referer: https://webiptv.site/" \
-            -H "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36" \
+            -H "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36" \
+            -H "Accept: */*" \
+            -H "Accept-Language: en-US,en;q=0.9" \
             -H "Origin: https://webiptv.site" \
-            "https://mpdchecker.webiptv.site/output.php?url=https%3A%2F%2Fwebiptv.site%2Fskynz.php%3Fid%3D$id")
+            -H "Connection: keep-alive" \
+            -H "Sec-Fetch-Dest: empty" \
+            -H "Sec-Fetch-Mode: cors" \
+            -H "Sec-Fetch-Site: same-site" \
+            -H "Pragma: no-cache" \
+            -H "Cache-Control: no-cache" \
+            "https://mpdchecker.webiptv.site/output.php?url=https%3A%2F%2Fwebiptv.site%2Fskynz.php%3Fid%3D219026")
           
-          # Extract key
-          key=$(echo "$html" | grep -o '"aefc2c8d1c8840f1b6981f856c9269ba":"[^"]*"' | cut -d'"' -f4)
-          
-          echo '{"mpd":"'"$mpd"'","key":"'"$key"'"}' > mpd.json
+          echo '{"mpd_url":"'"$URL"'"}' > mpd.json
           cat mpd.json
           
-      - name: Commit
+      - name: Commit JSON
         run: |
           git config user.name "github-actions"
           git config user.email "actions@github.com"
