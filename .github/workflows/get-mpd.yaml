@@ -68,5 +68,6 @@ jobs:
 
           git diff --cached --quiet && echo "No changes" && exit 0
 
+          git pull --rebase
           git commit -m "Auto update MPD JSON"
           git push
