@@ -62,19 +62,11 @@ jobs:
 
       - name: Commit JSON
         run: |
-          set +e
-
           git config user.name "github-actions"
           git config user.email "actions@github.com"
           git add output.json
 
-          if git diff --cached --quiet; then
-            echo "No changes to commit"
-            exit 0
-          fi
+          git diff --cached --quiet && echo "No changes" && exit 0
 
-          git pull --rebase
           git commit -m "Auto update MPD JSON"
           git push
-
-          exit 0
