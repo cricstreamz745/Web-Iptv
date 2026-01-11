@@ -19,7 +19,7 @@ jobs:
         run: |
           echo "[]" > output.json
 
-          jq -c '.[]' nz.json | while read -r item; do
+          jq -c '.channels[]' nz.json | while read -r item; do
             name=$(echo "$item" | jq -r '.name')
             thumb=$(echo "$item" | jq -r '.thumb')
             fetch_url=$(echo "$item" | jq -r '.fetch_url')
