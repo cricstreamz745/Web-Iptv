@@ -1,16 +1,37 @@
-name: Curl Test
+name: Extract HTML Data
 
 on:
-  push:
   workflow_dispatch:
+  push:
 
 jobs:
-  run-curl:
+  extract:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Run curl request
+      - uses: actions/checkout@v4
+
+      - name: Fetch HTML
         run: |
-          curl -H "Referer: https://webiptv.site/" \
-               -H "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36" \
-               -v https://webiptv.site/skynz1.php
+          curl -s -H "Referer: https://webiptv.site/" \
+               -H "User-Agent: Mozilla/5.0" \
+               https://webiptv.site/skynz1.php > page.html
+
+      - name: Extract JSON
+        run: |
+          title=$(grep -oP '(?<=<title>).*?(?=</title>)' page.html)
+
+          fetchurl=$(grep -oP 'fetch\(".*?"\)' page.html | head -n 1 | sed 's/fetch("//' | sed 's/")//')
+
+          clearkey=$(grep -oP 'clearKeys:\s*\{\s*"\K[^"]+' page.html)
+          keyvalue=$(grep -oP 'clearKeys:\s*\{\s*"[^"]+"\s*:\s*"\K[^"]+' page.html)
+
+          echo "{ \"name\": \"$title\", \"fetch_url\": \"$fetchurl\", \"kid\": \"$clearkey\", \"key\": \"$keyvalue\" }" > data.json
+
+      - name: Commit JSON
+        run: |
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          git add data.json
+          git commit -m "Auto update JSON"
+          git push
