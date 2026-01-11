@@ -1,4 +1,4 @@
-name: Extract All Sky NZ MPDs
+name: Extract Sky NZ MPDs
 on:
   schedule:
     - cron: '*/10 * * * *'
@@ -10,67 +10,32 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       
-      - name: Extract MPDs and Keys
+      - name: Get MPD for skynz1.php
         run: |
-          # Array of channel URLs
-          urls=(
-            "https://webiptv.site/skynz1uhd.php"
-            "https://webiptv.site/skynz1.php"
-            "https://webiptv.site/skynz2.php"
-            "https://webiptv.site/skynz3.php"
-            "https://webiptv.site/skynz4.php"
-            "https://webiptv.site/skynz5.php"
-            "https://webiptv.site/skynz6.php"
-            "https://webiptv.site/skynz7.php"
-            "https://webiptv.site/skynz8.php"
-            "https://webiptv.site/skynz9.php"
-            "https://webiptv.site/skynzsl.php"
-            "https://webiptv.site/skynzespn.php"
-            "https://webiptv.site/skynzespn2.php"
-          )
+          # Get page to find ID
+          html=$(curl -s -H "Referer: https://webiptv.site/" -H "User-Agent: Mozilla/5.0" "https://webiptv.site/skynz1.php")
           
-          channels_json='{"Sky_NZ_Channels":['
+          # Extract ID
+          id=$(echo "$html" | grep -o "skynz.php?id=[0-9]*" | head -1 | cut -d= -f2)
+          echo "Found ID: $id"
           
-          for i in "${!urls[@]}"; do
-            url="${urls[$i]}"
-            
-            # Get page HTML
-            html=$(curl -s -H "Referer: https://webiptv.site/" "$url")
-            
-            # Extract ID from skynz.php?id=XXXXXX
-            id=$(echo "$html" | grep -o "skynz.php?id=[0-9]*" | head -1 | cut -d= -f2)
-            
-            if [ -n "$id" ]; then
-              # Get MPD URL from output.php
-              mpd_url=$(curl -s \
-                -H "Referer: https://webiptv.site/" \
-                -H "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36" \
-                -H "Origin: https://webiptv.site" \
-                "https://mpdchecker.webiptv.site/output.php?url=https%3A%2F%2Fwebiptv.site%2Fskynz.php%3Fid%3D$id")
-              
-              # Extract DRM key from HTML
-              key_line=$(echo "$html" | grep -o '"aefc2c8d1c8840f1b6981f856c9269ba":"[^"]*"')
-              drm_key=$(echo "$key_line" | cut -d'"' -f4)
-              
-              # Build JSON
-              channels_json+='{"url":"'"$mpd_url"'","key":"'"$drm_key"'"}'
-              
-              if [ $i -lt $((${#urls[@]}-1)) ]; then
-                channels_json+=','
-              fi
-              
-              echo "Channel $((i+1)): ID=$id, Key=$drm_key"
-            fi
-          done
+          # Get MPD URL
+          mpd=$(curl -s \
+            -H "Referer: https://webiptv.site/" \
+            -H "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36" \
+            -H "Origin: https://webiptv.site" \
+            "https://mpdchecker.webiptv.site/output.php?url=https%3A%2F%2Fwebiptv.site%2Fskynz.php%3Fid%3D$id")
           
-          channels_json+=']}'
-          echo "$channels_json" > sky_nz_mpds.json
-          cat sky_nz_mpds.json
+          # Extract key
+          key=$(echo "$html" | grep -o '"aefc2c8d1c8840f1b6981f856c9269ba":"[^"]*"' | cut -d'"' -f4)
           
-      - name: Commit Results
+          echo '{"mpd":"'"$mpd"'","key":"'"$key"'"}' > mpd.json
+          cat mpd.json
+          
+      - name: Commit
         run: |
           git config user.name "github-actions"
           git config user.email "actions@github.com"
-          git add sky_nz_mpds.json
-          git commit -m "Update Sky NZ MPDs" || echo "No changes"
+          git add mpd.json
+          git commit -m "Update MPD" || echo "No changes"
           git push
