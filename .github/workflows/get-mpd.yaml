@@ -1,22 +1,37 @@
-name: Get MPD URL
-on: workflow_dispatch
+name: Update MPD JSON
+on:
+  schedule:
+    - cron: '*/15 * * * *'  # Every 15 minutes
+  workflow_dispatch:
 
 jobs:
-  get-mpd:
+  update-mpd:
     runs-on: ubuntu-latest
     steps:
-      - run: |
-          curl -s -H "Referer: https://webiptv.site/" \
+      - uses: actions/checkout@v4
+      
+      - name: Get MPD URL
+        id: get-mpd
+        run: |
+          MPD_URL=$(curl -s \
+            -H "Referer: https://webiptv.site/" \
             -H "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36" \
-            -H "Accept: */*" \
-            -H "Accept-Language: en-US,en;q=0.9" \
             -H "Origin: https://webiptv.site" \
-            -H "Connection: keep-alive" \
-            -H "Sec-Fetch-Dest: empty" \
-            -H "Sec-Fetch-Mode: cors" \
-            -H "Sec-Fetch-Site: same-site" \
-            -H "Pragma: no-cache" \
-            -H "Cache-Control: no-cache" \
-            "https://mpdchecker.webiptv.site/output.php?url=https%3A%2F%2Fwebiptv.site%2Fskynz.php%3Fid%3D219026" > mpd.txt
+            "https://mpdchecker.webiptv.site/output.php?url=https%3A%2F%2Fwebiptv.site%2Fskynz.php%3Fid%3D219026")
           
-          cat mpd.txt
+          echo "MPD_URL=$MPD_URL" >> $GITHUB_OUTPUT
+          
+          # Create JSON
+          echo '{
+            "mpd_url": "'"$MPD_URL"'",
+            "updated_at": "'"$(date -u +"%Y-%m-%dT%H:%M:%SZ")"'",
+            "drm_key": "aefc2c8d1c8840f1b6981f856c9269ba:cf8ea114c45b4d6596b2748258ab74d6"
+          }' > mpd-data.json
+          
+      - name: Commit and Push
+        run: |
+          git config --global user.name "GitHub Action"
+          git config --global user.email "action@github.com"
+          git add mpd-data.json
+          git commit -m "Update MPD URL $(date +'%Y-%m-%d %H:%M:%S')" || echo "No changes"
+          git push
