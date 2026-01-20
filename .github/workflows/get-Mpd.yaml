@@ -1,0 +1,76 @@
+name: Get MPD JSON
+
+on:
+  schedule:
+    - cron: '*/10 * * * *'
+  workflow_dispatch:
+
+jobs:
+  get-mpd:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install jq
+        run: sudo apt-get install -y jq
+
+      - name: Fetch MPDs and create new JSON
+        run: |
+          echo "[]" > output.json
+
+          jq -c '.channels[]' nz.json | while read -r item; do
+            name=$(echo "$item" | jq -r '.name')
+            thumb=$(echo "$item" | jq -r '.thumb')
+            fetch_url=$(echo "$item" | jq -r '.fetch_url')
+            kid=$(echo "$item" | jq -r '.kid')
+            key=$(echo "$item" | jq -r '.key')
+
+            mpd=$(curl -s \
+              -H "Referer: https://webiptv.site/" \
+              -H "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36" \
+              -H "Accept: */*" \
+              -H "Accept-Language: en-US,en;q=0.9" \
+              -H "Origin: https://webiptv.site" \
+              -H "Connection: keep-alive" \
+              -H "Sec-Fetch-Dest: empty" \
+              -H "Sec-Fetch-Mode: cors" \
+              -H "Sec-Fetch-Site: same-site" \
+              -H "Pragma: no-cache" \
+              -H "Cache-Control: no-cache" \
+              "$fetch_url")
+
+            new_item=$(jq -n \
+              --arg name "$name" \
+              --arg thumb "$thumb" \
+              --arg mpd "$mpd" \
+              --arg kid "$kid" \
+              --arg key "$key" \
+              '{
+                name: $name,
+                thumb: $thumb,
+                mpd: $mpd,
+                kid: $kid,
+                key: $key
+              }')
+
+            tmp=$(mktemp)
+            jq ". += [$new_item]" output.json > "$tmp" && mv "$tmp" output.json
+          done
+
+          cat output.json
+
+      - name: Commit JSON
+        run: |
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          git add output.json
+
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+            exit 0
+          else
+            git commit -m "Auto update MPD JSON"
+            git pull --rebase origin main
+            git push
+          fi
