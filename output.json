@@ -23,21 +23,21 @@
   {
     "name": "Sky Sports NZ 3",
     "thumb": "https://iili.io/KbJoon2.png",
-    "mpd": "Failed (HTTP 404)",
+    "mpd": "Failed (HTTP 0)",
     "kid": "2e2636daa74141b68cc14882ea3ff82b",
     "key": "0961f48287324adbb4b7ff3c9d82b3c9"
   },
   {
     "name": "Sky Sports NZ 4",
     "thumb": "https://iili.io/KbdFtNp.png",
-    "mpd": "Failed (HTTP 404)",
+    "mpd": "Failed (HTTP 0)",
     "kid": "278b8746b7c7410e901af0aa3774f037",
     "key": "15e1142d647b474ebbd49e41efa2a9d7"
   },
   {
     "name": "Sky Sports NZ 5",
     "thumb": "https://iili.io/KbdfMG9.png",
-    "mpd": "Failed (HTTP 404)",
+    "mpd": "Failed (HTTP 0)",
     "kid": "fdd24dd2c6c14126ad7c1ad1066b03dd",
     "key": "08289c6d57d54e8d8dca55e1862afb82"
   },
@@ -51,7 +51,7 @@
   {
     "name": "Sky Sports NZ 7",
     "thumb": "https://iili.io/KmU3shF.png",
-    "mpd": "Failed (HTTP 404)",
+    "mpd": "Failed (HTTP 0)",
     "kid": "af95024eda94455e922b90a39a3af93e",
     "key": "852e715ef4064b05b8e1cdee285648b5"
   },
@@ -65,7 +65,7 @@
   {
     "name": "Sky Sports NZ 9",
     "thumb": "https://iili.io/KmU5Pl2.png",
-    "mpd": "Failed (HTTP 404)",
+    "mpd": "Failed (HTTP 0)",
     "kid": "72002c630e2343849984b5d3ec418162",
     "key": "ae6f8e3ff42a4963ae25686cca56c8e8"
   },
@@ -79,14 +79,14 @@
   {
     "name": "Sky Sports ESPN",
     "thumb": "https://iili.io/KmUjH9s.png",
-    "mpd": "Failed (HTTP 404)",
+    "mpd": "Failed (HTTP 0)",
     "kid": "326058ffe1cd4d3383781b36ca9145d1",
     "key": "99d405d46f114eff96789673e57d0121"
   },
   {
     "name": "Sky Sports ESPN 2",
     "thumb": "https://iili.io/KmUO5il.png",
-    "mpd": "Failed (HTTP 404)",
+    "mpd": "Failed (HTTP 0)",
     "kid": "a01e1e0d5fb145b8b33190588490a27a",
     "key": "bfd9e3b0866e49cbae1bb7f7116451c9"
   }
