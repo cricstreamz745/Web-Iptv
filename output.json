@@ -9,14 +9,14 @@
   {
     "name": "Sky Sports NZ 1",
     "thumb": "https://iili.io/KbJy77S.png",
-    "mpd": "Failed (HTTP 404)",
+    "mpd": "Failed (HTTP 0)",
     "kid": "aefc2c8d1c8840f1b6981f856c9269ba",
     "key": "cf8ea114c45b4d6596b2748258ab74d6"
   },
   {
     "name": "Sky Sports NZ 2",
     "thumb": "https://iili.io/Kbd3hYv.png",
-    "mpd": "Failed (HTTP 404)",
+    "mpd": "Failed (HTTP 0)",
     "kid": "708a98b352bd4418a73a028edd84da8f",
     "key": "b1fa5c2bca4c4b57b924b748564532cb"
   },
