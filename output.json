@@ -2,7 +2,7 @@
   {
     "name": "Sky Sports NZ 1 UHD",
     "thumb": "https://webiptv.site/sky4k.png",
-    "mpd": "https://dice-live-oc.akamaized.net/hdntl=exp=1770670877~acl=%2f*~id=211d3189-cef5-4022-b23e-8c7f73481019~data=hdntl,dWlkPTk2NDM3fGRjZS5za3lueiZpcD0xNjEuNjUuODguNiZleHA9MTc3MDY3MDkwNiZlaWQ9MjE5MDI2JmNpZD1kY2Uuc2t5bnomb2lkPTMxOCZ0eXBlPUxJVkU~hmac=16bf966f8e0cefc10e8736d9b63421df3f68c3392ea952dbe3e1da8bef10aa1a/dash/live/2093721/294921-316094/manifest-d.mpd",
+    "mpd": "https://dice-live-oc.akamaized.net/hdntl=exp=1770673046~acl=%2f*~id=54451e32-9805-4b5b-9f5a-06b0b7bc5f09~data=hdntl,dWlkPTk2NDM3fGRjZS5za3lueiZpcD0xMDEuOTguMTkyLjE0OCZleHA9MTc3MDY3MzA3NSZlaWQ9MjE5MDI2JmNpZD1kY2Uuc2t5bnomb2lkPTMxOCZ0eXBlPUxJVkU~hmac=56f06745a8baee272a0446249bfd58b9a2ec6f44703fb638dbadf4462355af67/dash/live/2093721/294921-316094/manifest-d.mpd",
     "kid": "4d346b1d1ae64d4a800409cffa14983e",
     "key": "208c972bd2da4359ac94e6944fe378b6"
   },
