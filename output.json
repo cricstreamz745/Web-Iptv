@@ -2,7 +2,7 @@
   {
     "name": "Sky Sports NZ 1 UHD",
     "thumb": "https://webiptv.site/sky4k.png",
-    "mpd": "ERROR: Could not fetch fresh token from proxy.",
+    "mpd": "https://dice-live-oc.akamaized.net/hdntl=exp=1770627881~acl=%2f*~id=274c45bd-7770-4f5e-bedc-7f5198d9ef25~data=hdntl,dWlkPTk2NDM3fGRjZS5za3lueiZpcD02MC4yMzQuMjIzLjgyJmV4cD0xNzcwNjI3OTExJmVpZD0yMTkwMjYmY2lkPWRjZS5za3lueiZvaWQ9MzE4JnR5cGU9TElWRQ~hmac=3574af24c31923b0dae1f97579588be04dacf109a69840c66447106ba1a7a608/dash/live/2093721/294921-316094/manifest-d.mpd",
     "kid": "4d346b1d1ae64d4a800409cffa14983e",
     "key": "208c972bd2da4359ac94e6944fe378b6"
   },
